@@ -1,11 +1,11 @@
-import { Right, Left } from './either'
+import { Right, Left } from './either.js'
 
 export const MongoProp = (props) => ({ mongo: null, ...props })
 export const MongoBox = (props) => {
-  if (!props || !props.mongo) {
+  if (!props.mongo) {
     props['error'] = 'Mongo not initialized'
-    return Right(MongoBox, props)
+    return Left(props)
   }
 
-  return Left(MongoBox, props)
+  return Right(props)
 }

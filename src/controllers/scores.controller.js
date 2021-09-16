@@ -1,11 +1,17 @@
-import { time } from '../utils/time'
-import { MongoBox, MongoProp } from '../utils/mongo'
+import { time } from '../utils/time.js'
+import { logger } from '../utils/logger.js'
+import { MongoBox, MongoProp } from '../utils/mongo.js'
 
 const ReadProps = MongoProp({ league: 'nba' })
-export const read = (props = ReadProps) => ({
-  game: (_id) =>
-    MongoBox(props).map(({ mongo, league }) =>
-      mongo.collection(league).findOne({ _id })
+
+export const read = ({ req, mongo } = ReadProps) => ({
+  game: (gameProps) =>
+    MongoBox({
+      mongo,
+      league: req.params.league ?? gameProps.league,
+      matchId: req.params.matchId ?? gameProps.matchId,
+    }).map(({ mongo, league, matchId }) =>
+      mongo.db.collection(league).findOne({ _id: matchId })
     ),
   games: () =>
     MongoBox(props).map(({ mongo, league }) =>
@@ -13,7 +19,7 @@ export const read = (props = ReadProps) => ({
     ),
 })
 
-const UpdateProps = MongoProp({ league, _id })
+const UpdateProps = MongoProp({ league: 'nba', _id: 'nba' })
 export const update = (updateProps = UpdateProps) => ({
   game: ({ _id, score }) =>
     MongoBox(updateProps).map(({ mongo, league }) =>
@@ -26,7 +32,11 @@ export const update = (updateProps = UpdateProps) => ({
     ),
 })
 
-const CreateProps = MongoProp({ league, score, updatedAt })
+const CreateProps = MongoProp({
+  league: 'nba',
+  score: {},
+  updatedAt: time.unix(),
+})
 export const create = (createProps = CreateProps) => ({
   one: ({ score, updatedAt }) =>
     MongoBox(createProps).map(({ mongo, league }) =>

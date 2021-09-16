@@ -20,9 +20,11 @@
   },
   "homepage": "https://github.com/camvaz/boxscore-backend#readme",
   "dependencies": {
+    "chalk": "^4.1.2",
     "fastify": "^3.21.1",
     "fastify-mongodb": "^4.1.0",
-    "node-fetch": "^3.0.0"
+    "node-fetch": "^3.0.0",
+    "ramda.compose": "^0.26.1"
   },
   "devDependencies": {
     "mocha": "^9.1.1"
