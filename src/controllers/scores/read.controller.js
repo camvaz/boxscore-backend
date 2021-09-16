@@ -4,6 +4,11 @@ import { Left } from '../../utils/either.js'
 import { MongoBox } from '../../utils/mongo.js'
 import { time } from '../../utils/time.js'
 
+/**
+ * @function fetchBarstoolData
+ * @description fetch barstool data from the API
+ *  @param {string} leagueId - the league id
+ */
 const fetchBarstoolData = (league) => {
   switch (league) {
     case 'nba':
@@ -21,6 +26,12 @@ const fetchBarstoolData = (league) => {
   }
 }
 
+/**
+ *
+ * @param {object} gameProps
+ * @param {object} param1
+ * @returns
+ */
 export const getGame = (gameProps, { req, mongo }) => {
   const queryProps = {
     mongo,
