@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "dev": "nodemon index.js",
     "start": "node index.js",
     "test": "mocha"
   },
@@ -27,6 +28,7 @@
     "ramda.compose": "^0.26.1"
   },
   "devDependencies": {
-    "mocha": "^9.1.1"
+    "mocha": "^9.1.1",
+    "nodemon": "^2.0.12"
   }
 }
