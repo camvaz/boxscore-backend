@@ -21,6 +21,7 @@
   "homepage": "https://github.com/camvaz/boxscore-backend#readme",
   "dependencies": {
     "fastify": "^3.21.1",
+    "fastify-mongodb": "^4.1.0",
     "node-fetch": "^3.0.0"
   },
   "devDependencies": {
