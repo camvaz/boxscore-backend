@@ -1,3 +1,4 @@
+'use strict'
 import { MongoProp } from '../../utils/mongo.js'
 import { getGame } from './read.controller.js'
 

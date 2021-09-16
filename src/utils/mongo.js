@@ -1,3 +1,4 @@
+'use strict'
 import { Right, Left } from './either.js'
 
 /**

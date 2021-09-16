@@ -1,3 +1,10 @@
+'use strict'
+
+/**
+ *
+ * @param {any} x
+ * @returns
+ */
 export const Right = (x) => ({
   map: (f) => Right(f(x)),
   fold: (_, g) => g(x),

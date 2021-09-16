@@ -1,3 +1,4 @@
+'use strict'
 import fetch from 'node-fetch'
 import { Left } from '../../utils/either.js'
 
