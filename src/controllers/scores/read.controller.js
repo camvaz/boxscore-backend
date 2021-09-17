@@ -1,6 +1,6 @@
 'use strict'
 import fetch from 'node-fetch'
-import { Left } from '../../utils/either.js'
+import { Left } from '../../utils/types.js'
 
 import { MongoBox } from '../../utils/mongo.js'
 import { time } from '../../utils/time.js'
